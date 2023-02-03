@@ -1,6 +1,7 @@
 $(document).ready(function() {
     $("#cpf").mask("999.999.999-99");
     $("#cep").mask("99999-999");
+    $('#tel').mask('(00) 0000-0000');
   
     $("#form").submit(function(event) {
       event.preventDefault();
