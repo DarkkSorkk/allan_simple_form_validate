@@ -33,5 +33,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     
     <script src="main.js"></script>
+        <script>
+      document.getElementById("form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const nome = document.getElementById("nome").value;
+        const tel = document.getElementById("tel").value;
+        const cpf = document.getElementById("cpf").value;
+        const endereco = document.getElementById("endereco").value;
+        const cep = document.getElementById("cep").value;
+        const data = { nome, tel, cpf, endereco, cep };
+        fetch("https://allan-simple-form-validate-a78qotmfd-darkksorkk.vercel.app/api/submit-form", {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => console.log(data))
+          .catch((error) => console.error(error));
+      });
+    </script>
   </body>
 </html>
